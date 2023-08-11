@@ -33,7 +33,7 @@ describe('Graph', () => {
     // expect(graph.adjacencyList.get("Jasmine").has("Ada")).toEqual(true);
     // expect(graph.adjacencyList.get("Ada").has("Jasmine")).toEqual(true);
     expect(graph.hasEdge("Ada", "Jasmine")).toEqual(true);
-  });
+  }); 
 
   test('it should check to see if an edge exists in graph', () => {
     graph.addNode("Jasmine");
@@ -48,5 +48,17 @@ describe('Graph', () => {
     graph.removeEdge("Jasmine", "Ada");
     expect(graph.hasEdge("Ada", "Jasmine")).toEqual(false);
   });
+
+  test('it should delete a node and all of its adjacent nodes', () => {
+    graph.addNode("Ada");
+    graph.addNode("Jasmine");
+    graph.addNode("Lydia");
+    graph.createEdge("Ada", "Jasmine");
+    graph.createEdge("Ada", "Lydia");
+    graph.removeEdge("Ada");
+    expect(graph.hasNode("Ada")).toEqual(false);
+    expect(graph.hasEdge("Jasmine", "Ada")).toEqual(false);
+    expect(graph.hasEdge("Lydia", "Ada")).toEqual(false);
+  })
 
 });
