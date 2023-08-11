@@ -25,4 +25,13 @@ describe('Graph', () => {
     graph.addNode("Jasmine");
     expect(graph.hasNode("Jasmine")).toEqual(true);
   });
+
+  test('it should add an edge between two nodes', () => {
+    graph.addNode("Jasmine");
+    graph.addNode("Ada");
+    graph.createEdge("Jasmine", "Ada");
+    expect(graph.adjacencyList.get("Jasmine").has("Ada")).toEqual(true);
+    expect(graph.adjacencyList.get("Ada").has("Jasmine")).toEqual(true);
+  });
+
 });
