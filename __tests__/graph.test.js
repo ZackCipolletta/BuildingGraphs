@@ -11,4 +11,9 @@ describe('Graph', () => {
   test('should correctly instantiate a graph', () => {
     expect(graph.adjacencyList.size).toEqual(0);
   });
+
+  test('it should add a new node', () => {
+    graph.addNode("Jasmine");
+    expect(graph.adjacencyList.get("Jasmine").size).toEqual(0);
+  });
 });
