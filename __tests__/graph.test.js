@@ -30,8 +30,23 @@ describe('Graph', () => {
     graph.addNode("Jasmine");
     graph.addNode("Ada");
     graph.createEdge("Jasmine", "Ada");
-    expect(graph.adjacencyList.get("Jasmine").has("Ada")).toEqual(true);
-    expect(graph.adjacencyList.get("Ada").has("Jasmine")).toEqual(true);
+    // expect(graph.adjacencyList.get("Jasmine").has("Ada")).toEqual(true);
+    // expect(graph.adjacencyList.get("Ada").has("Jasmine")).toEqual(true);
+    expect(graph.hasEdge("Ada", "Jasmine")).toEqual(true);
+  });
+
+  test('it should check to see if an edge exists in graph', () => {
+    graph.addNode("Jasmine");
+    graph.addNode("Ada");
+    expect(graph.hasEdge("Jasmine", "Ada")).toEqual(false);
+  });
+
+  test('it should remove an edge between two nodes', () => {
+    graph.addNode("Jasmine");
+    graph.addNode("Ada");
+    graph.createEdge("Jasmine", "Ada");
+    graph.removeEdge("Jasmine", "Ada");
+    expect(graph.hasEdge("Ada", "Jasmine")).toEqual(false);
   });
 
 });

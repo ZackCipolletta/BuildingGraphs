@@ -21,4 +21,12 @@ export default class Graph {
     set1.add(node2);
     set2.add(node1);
   }
+
+  hasEdge(node1, node2) {
+    if (this.adjacencyList.get(node1).has(node2)) {
+      return true;
+    }
+    return false;
+  }
+
 }
