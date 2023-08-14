@@ -34,4 +34,13 @@ export default class Graph {
     this.adjacencyList.get(node2).delete(node1);
   }
 
+  removeNode(name) {
+    //We use arrow notation (=>) so that this.adjacencyList remains bound to the same this both inside and outside the loop. If it weren't for =>, the this inside the loop would lose its binding and be undefined.
+    if (this.adjacencyList.has(name)) {
+      this.adjacencyList.get(name).forEach((edge) => {
+        this.adjacencyList.get(edge).delete(name);
+      });
+      this.adjacencyList.delete(name);
+    }
+  }
 }

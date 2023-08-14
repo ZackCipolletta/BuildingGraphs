@@ -55,7 +55,7 @@ describe('Graph', () => {
     graph.addNode("Lydia");
     graph.createEdge("Ada", "Jasmine");
     graph.createEdge("Ada", "Lydia");
-    graph.removeEdge("Ada");
+    graph.removeNode("Ada");
     expect(graph.hasNode("Ada")).toEqual(false);
     expect(graph.hasEdge("Jasmine", "Ada")).toEqual(false);
     expect(graph.hasEdge("Lydia", "Ada")).toEqual(false);
